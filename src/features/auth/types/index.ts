@@ -1,8 +1,8 @@
 export type AuthUser = {
   id: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   bio: string;
   role: 'ADMIN' | 'USER';
 };

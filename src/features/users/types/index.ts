@@ -1,8 +1,8 @@
 import { BaseEntity } from '@/types';
 
 export type User = {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   role: 'ADMIN' | 'USER';
   teamId: string;

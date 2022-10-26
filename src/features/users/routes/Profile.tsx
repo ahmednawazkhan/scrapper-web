@@ -31,8 +31,8 @@ export const Profile = () => {
         </div>
         <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
           <dl className="sm:divide-y sm:divide-gray-200">
-            <Entry label="First Name" value={user.firstName} />
-            <Entry label="Last Name" value={user.lastName} />
+            <Entry label="First Name" value={user.firstname} />
+            <Entry label="Last Name" value={user.lastname} />
             <Entry label="Email Address" value={user.email} />
             <Entry label="Role" value={user.role} />
             <Entry label="Bio" value={user.bio} />
