@@ -10,4 +10,5 @@ export type AuthUser = {
 export type UserResponse = {
   jwt: string;
   user: AuthUser;
+  accessToken: string;
 };

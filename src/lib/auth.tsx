@@ -1,28 +1,29 @@
+import jsonwebtoken from 'jsonwebtoken';
 import { initReactQueryAuth } from 'react-query-auth';
 
 import { Spinner } from '@/components/Elements';
 import {
+  AuthUser,
+  LoginCredentialsDTO,
   loginWithEmailAndPassword,
-  getUser,
+  RegisterCredentialsDTO,
   registerWithEmailAndPassword,
   UserResponse,
-  LoginCredentialsDTO,
-  RegisterCredentialsDTO,
-  AuthUser,
 } from '@/features/auth';
 import storage from '@/utils/storage';
 
 async function handleUserResponse(data: UserResponse) {
-  const { jwt, user } = data;
-  storage.setToken(jwt);
+  const { accessToken } = data;
+  const user: AuthUser = jsonwebtoken.decode(accessToken) as AuthUser;
+  storage.setToken(accessToken);
   return user;
 }
 
 async function loadUser() {
-  if (storage.getToken()) {
-    const data = await getUser();
-    return data;
-  }
+  // if (storage.getToken()) {
+  //   const data = await getUser();
+  //   return data;
+  // }
   return null;
 }
 
