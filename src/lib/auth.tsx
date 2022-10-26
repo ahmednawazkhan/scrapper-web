@@ -4,6 +4,7 @@ import { initReactQueryAuth } from 'react-query-auth';
 import { Spinner } from '@/components/Elements';
 import {
   AuthUser,
+  getUser,
   LoginCredentialsDTO,
   loginWithEmailAndPassword,
   RegisterCredentialsDTO,
@@ -15,15 +16,16 @@ import storage from '@/utils/storage';
 async function handleUserResponse(data: UserResponse) {
   const { accessToken } = data;
   const user: AuthUser = jsonwebtoken.decode(accessToken) as AuthUser;
+  console.log(user);
   storage.setToken(accessToken);
   return user;
 }
 
 async function loadUser() {
-  // if (storage.getToken()) {
-  //   const data = await getUser();
-  //   return data;
-  // }
+  if (storage.getToken()) {
+    const data = await getUser();
+    return data;
+  }
   return null;
 }
 

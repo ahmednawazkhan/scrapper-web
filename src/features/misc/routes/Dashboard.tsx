@@ -3,6 +3,7 @@ import { useAuth } from '@/lib/auth';
 import { ROLES } from '@/lib/authorization';
 
 export const Dashboard = () => {
+  console.log('hit');
   const { user } = useAuth();
   return (
     <ContentLayout title="Dashboard">
